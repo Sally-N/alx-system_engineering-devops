@@ -1,1 +1,1 @@
-shell redirections
+shell directions and special characters
