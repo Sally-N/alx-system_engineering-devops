@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# loop 10 times, prints, on 9th loop says hi
+
+i=10
+
+while [ $i -gt 0 ];do
+    echo "Best School"
+    if [ $i = 2 ]; then
+        echo "Hi"
+    fi
+    [ $(( i-=1 )) -ne 0 ]
+done
