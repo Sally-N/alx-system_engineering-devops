@@ -31,8 +31,8 @@ if __name__ == "__main__":
             done_tasks_list.append(task)
 
     # Diplay progress
-    print(f'Employee {employee_name} is done with tasks
-        ({done_tasks}/{total_tasks}):')
+    print(f'Employee {employee_name} is done with tasks({done_tasks}
+        /{total_tasks}):')
 
     # Print completed tasks
     for task in done_tasks_list:
