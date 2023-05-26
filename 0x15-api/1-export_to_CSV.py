@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Exports csv file"""
+"""Exports data in a csv format."""
 
 import csv
 import requests
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # Get employee info
     response = requests.get(employee_url)
     employee_data = response.json()
-    employee_name = employee_data['name']
+    employee_name = employee_data.get('name')
 
     # Get employee todos
     response_todos = requests.get(employee_todos_url)
@@ -24,11 +24,11 @@ if __name__ == "__main__":
 
     # Csv
     filename = f"{employee_id}.csv"
-    with open(filename, 'w', encoding='UTF8', newline='') as f:
+    with open(filename, 'w') as f:
         for todo in todos_data:
-            user_id = todo["userId"]
-            task_status = todo["completed"]
-            task_title = todo["title"]
+            user_id = todo.get("userId")
+            task_status = todo.get("completed")
+            task_title = todo.get("title")
             row  = '"{}","{}","{}","{}"\n'.format(user_id, employee_name,
                                                     task_status, task_title)
             f.write(row)
