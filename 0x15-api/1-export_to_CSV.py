@@ -23,12 +23,8 @@ if __name__ == "__main__":
     todos_data = response_todos.json()
 
     # Csv
-    filename = f"{employee_id}.csv"
-    with open(filename, 'w') as f:
-        for todo in todos_data:
-            user_id = todo.get("userId")
-            task_status = todo.get("completed")
-            task_title = todo.get("title")
-            row  = '"{}","{}","{}","{}"\n'.format(user_id, employee_name,
-                                                    task_status, task_title)
-            f.write(row)
+    with open("{}.csv".format(employee_id), "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        [writer.writerow(
+            [employee_id, employee_name, t.get("completed"), t.get("title")]
+        ) for t in todos_data]
