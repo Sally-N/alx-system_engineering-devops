@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""Script that returns information about a user's TODO list progress."""
+"""Module returning information about a user's TODO list progress."""
 
 import requests
 import sys
+
 
 employee_id = int(sys.argv[1])
 
@@ -15,6 +16,7 @@ try:
     response = requests.get(employee_url)
     employee_data = reponse.json()
     employee_name = employee_data['name']
+    
 
     # Get employee todos
     response = requests.get(employee_todos_url)
@@ -30,5 +32,4 @@ try:
 
     # Print completed tasks
     for task in done_tasks:
-
         print(f"\t{task['title']}")
