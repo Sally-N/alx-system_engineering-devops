@@ -22,15 +22,13 @@ if __name__ == "__main__":
     response_todos = requests.get(employee_todos_url)
     todos_data = response_todos.json()
 
-    # Tasks
-    for task in todos_data:
-        task_status = task['completed']
-        user_id = task['userId']
-        task_title = task['title']
-
     # Csv
     filename = f"{employee_id}.csv"
-    csvdata = [user_id, employee_name, task_status, task_title]
     with open(filename, 'w', encoding='UTF8', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(csvdata)
+        for todo in todos_data:
+            user_id = todo["userId"]
+            task_status = todo["completed"]
+            task_title = todo["title"]
+            row  = '"{}","{}","{}","{}"\n'.format(user_id, employee_name,
+                                                    task_status, task_title)
+            f.write(row)
