@@ -7,7 +7,7 @@ import sys
 
 
 if __name__ == "__main__":
-    employee_id = int(sys.argv[1])
+    employee_id = (sys.argv[1])
 
     baseurl = "https://jsonplaceholder.typicode.com/"
     employee_url = f'{baseurl}users/{employee_id}'
