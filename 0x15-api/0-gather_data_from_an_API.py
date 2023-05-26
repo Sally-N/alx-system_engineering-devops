@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # Get employee info
     response = requests.get(employee_url)
     employee_data = response.json()
-    employee_name = employee_data['name']  
+    employee_name = employee_data['name']
 
     # Get employee todos
     response_todos = requests.get(employee_todos_url)
@@ -31,8 +31,9 @@ if __name__ == "__main__":
             done_tasks_list.append(task)
 
     # Diplay progress
-    print(f'Employee {employee_name} is done with tasks({done_tasks}/{total_tasks}):')
-    
+    print(f'Employee {employee_name} is done with tasks({done_tasks}
+            / {total_tasks}):')
+
     # Print completed tasks
     for task in done_tasks_list:
         print(f"\t{task['title']}")
