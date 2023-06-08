@@ -1,5 +1,3 @@
-# scripts to install and setup a firewall
-
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install ufw
 sudo sed -i 's/IPV6=no/IPV6=yes/' /etc/default/ufw
